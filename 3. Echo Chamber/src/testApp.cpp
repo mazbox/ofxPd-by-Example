@@ -6,44 +6,41 @@ void testApp::setup(){
 	// puredata works on sounds in chunks of 64 samples (called a tick)
 	// 8 ticks per buffer corresponds to 8 * 64 sample buffer size (512 samples)
 	int ticksPerBuffer = 8;
-	pd.init(2, 0, 44100, ticksPerBuffer);
+	
+	// note here we've changed the number of inputs (second parameter) to 1.
+	pd.init(2, 1, 44100, ticksPerBuffer);
 	
 	// open the patch (relative to the data folder)
-	pd.openPatch("theremin.pd");
+	pd.openPatch("echochamber.pd");
 	
 	// start pd
 	pd.dspOn();
 	
 	// start the sound stream - always do this last in your setup
-	ofSoundStreamSetup(2, 0, this, 44100, ofxPd::getBlockSize()*ticksPerBuffer, 1);
+	// note that this time, the number of inputs (second parameter) is now 1.
+	ofSoundStreamSetup(2, 1, this, 44100, ofxPd::getBlockSize()*ticksPerBuffer, 1);
 
 }
 
+// this is how you get audio into pd
+void testApp::audioIn(float *input, int bufferSize, int numChannels) {
+	pd.audioIn(input, bufferSize, numChannels);
+}
 
+
+// this is where the openframeworks sound stream connects to ofxPd
+// it's also where the audio processing is done
 void testApp::audioOut(float *output, int bufferSize, int numChannels) {
 	pd.audioOut(output, bufferSize, numChannels);
 }
 //--------------------------------------------------------------
 void testApp::update(){
-	pd.sendFloat("frequency", (ofGetHeight() - mouseY) + 20);
-	pd.sendFloat("volume", mouseX/(float)ofGetWidth());
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	
-	// don't worry about this, this is just drawing the axes and labels
 	ofSetHexColor(0);
-	
-	glPushMatrix();
-	glTranslatef(ofGetWidth()/2, ofGetHeight()/2, 0);
-	ofLine(-100, 0, 100, 0);
-	ofLine(0, -100, 0, 100);
-	ofDrawBitmapString("Louder", 110, 3);
-	ofDrawBitmapString("Quieter", -170, 3);
-	ofDrawBitmapString("Higher", -20, -110);
-	ofDrawBitmapString("Lower", -20, 110);
-	glPopMatrix();
+	ofDrawBitmapString("Echo Chamber", 10, 20);
 }
 
 //--------------------------------------------------------------
