@@ -74,7 +74,7 @@ void testApp::draw(){
 	ofSetColor(amplitude, amplitude, amplitude);
 	ofRect(0, 0, ofGetWidth(), ofGetHeight());
 	ofSetHexColor(0);
-	ofDrawBitmapString("Clap Trigger\nClap to see the screen\nget brighter", 10, 20);
+	ofDrawBitmapString("Clap Trigger\n============\nClap to see the screen\nget brighter", 10, 20);
 	
 }
 
