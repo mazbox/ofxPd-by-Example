@@ -1,0 +1,33 @@
+ofxPd by Example
+================
+
+This is a series of examples to show you how to use ofxPd, the puredata 
+addon for openFrameworks.
+
+What you need:
+
+0. a mac (for now)
+------------------
+Sorry, for now it's mac only.
+
+1. openFrameworks
+-----------------
+get it here https://github.com/openframeworks/openframeworks
+or open a terminal and cd to where you want it and type:
+
+git clone https://github.com/openframeworks/openFrameworks.git
+
+
+2. ofxPd
+--------
+get it here: 
+https://github.com/danomatika/ofxPd
+or likewise
+git clone https://github.com/danomatika/ofxPd.git
+
+put the ofxPd folder in the openFrameworks/addons folder with the other addons.
+
+ofxPd-by-Example
+----------------
+Take the entire folder of the ofxPd-by-Example repository (the one this text file is in)
+and put it in the openFrameworks/apps folder.
