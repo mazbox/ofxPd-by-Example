@@ -25,8 +25,32 @@ void testApp::audioOut(float *output, int bufferSize, int numChannels) {
 }
 //--------------------------------------------------------------
 void testApp::update(){
+	
+	// this is where we're going to send messages to pd.
+	// you could send it anywhere in the code, for instance,
+	// in the mousePressed() method, but for now we'll just
+	// do it in update.
 	pd.sendFloat("frequency", (ofGetHeight() - mouseY) + 20);
 	pd.sendFloat("volume", mouseX/(float)ofGetWidth());
+	
+	// also note, that you can send different kinds of messages 
+	// (please see ofxPd.h for a list of all the messages you can send)
+	// e.g.
+	// for bangs:
+	//     pd.sendBang("the-bang-name");
+	//
+	// for lists: (taken from ofxPd.h)
+	//     pd.startList("test");	// "test" is the reciever name in pd
+	//	   pd.addSymbol("hello");
+	//     pd.addFloat(1.23);
+	//     pd.finish();
+	//
+	// for midi messages:
+	//	   pd.sendNote(pitch, velocity);
+	//	   pd.sendCtl(controlNum, value);
+	//
+	// as mentioned before, please check ofxPd for a comprehensive list.
+
 }
 
 //--------------------------------------------------------------

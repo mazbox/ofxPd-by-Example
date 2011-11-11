@@ -3,6 +3,15 @@
 #include "ofMain.h"
 #include "ofxPd.h"
 
+// note here that I've added the bit ", public ofxPdListener" before the {
+// this makes your test app a type of ofxPdListener, which means you can
+// implement the callbacks listed in ofxPdListener.h
+// such as:
+//     floatReceived()
+//     bangReceived()
+//     listReceived() 
+// etc. They are all optional.
+
 class testApp : public ofBaseApp, public ofxPdListener {
 
 	public:

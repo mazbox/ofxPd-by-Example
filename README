@@ -2,15 +2,16 @@ ofxPd by Example
 ================
 
 This is a series of examples to show you how to use ofxPd, the puredata 
-addon for openFrameworks.
+addon for openFrameworks. The idea is that it is a quick reference for doing
+simple stuff with ofxPd.
 
 What you need:
 
-0. a mac (for now)
+a. a mac (for now)
 ------------------
 Sorry, for now it's mac only.
 
-1. openFrameworks
+b. openFrameworks
 -----------------
 get it here https://github.com/openframeworks/openframeworks
 or open a terminal and cd to where you want it and type:
@@ -18,7 +19,7 @@ or open a terminal and cd to where you want it and type:
 git clone https://github.com/openframeworks/openFrameworks.git
 
 
-2. ofxPd
+c. ofxPd
 --------
 get it here: 
 https://github.com/danomatika/ofxPd
@@ -27,7 +28,31 @@ git clone https://github.com/danomatika/ofxPd.git
 
 put the ofxPd folder in the openFrameworks/addons folder with the other addons.
 
-ofxPd-by-Example
-----------------
+d. ofxPd-by-Example
+-------------------
 Take the entire folder of the ofxPd-by-Example repository (the one this text file is in)
 and put it in the openFrameworks/apps folder.
+
+
+Examples Walkthrough
+===================
+Look at testApp.h and testApp.cpp and read the comments.
+
+1. Sine Wave
+------------
+The first example shows you how to run a patch in openframeworks to generate audio out.
+It does nothing special, just a sine wave.
+
+2. Mouse Theremin
+-----------------
+Mouse theremin is a simple example of how you can control pd by sending messages to it
+
+
+3. Echo Chamber
+---------------
+This shows you how to get sound into pd as well as sound out - an effect.
+
+4. Clap Trigger
+---------------
+This shows how openframeworks can receive messages from pd patches.
+
